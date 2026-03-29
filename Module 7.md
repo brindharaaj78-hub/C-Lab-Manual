@@ -15,8 +15,33 @@ Else
 6.	Return 0
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+struct numbers {
+    int a;
+    int b;
+};
+
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    return result;
+}
+
+int main() {
+    struct numbers n, res;
+    printf("Enter value for a: ");
+    scanf("%d", &n.a);
+    printf("Enter value for b: ");
+    scanf("%d", &n.b);
+
+    res = add(n);
+    printf("Sum = %d\n", res.a);
+
+    return 0;
+}
+```
 
 
 Output:
@@ -133,8 +158,32 @@ Use scanf to input the file name into the name array and the number of strings i
  
 Program:
 
-//type your code here
+#include <stdio.h>
 
+struct numbers {
+    int a;
+    int b;
+};
+
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    return result;
+}
+
+int main() {
+    struct numbers n, res;
+
+    printf("Enter value for a: ");
+    scanf("%d", &n.a);
+    printf("Enter value for b: ");
+    scanf("%d", &n.b);
+
+    res = add(n);
+    printf("Sum = %d\n", res.a);
+
+    return 0;
+}
 
 
 
@@ -187,7 +236,41 @@ Algorithm:
 
 Program:
 
-//type your code here
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *p;
+    char name[100], text[100];
+    int num, i;
+
+    printf("Enter the file name: ");
+    scanf("%s", name);
+
+    printf("Enter the number of lines to insert: ");
+    scanf("%d", &num);
+
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+
+    printf("File opened successfully.\n");
+
+    for (i = 0; i < num; i++) {
+        printf("Enter line %d: ", i + 1);
+        scanf(" %[^\n]", text);
+        fputs(text, p);
+        fputs("\n", p);
+    }
+
+    fclose(p);
+    printf("Data has been added successfully.\n");
+
+    return 0;
+}
+
 
 
 
